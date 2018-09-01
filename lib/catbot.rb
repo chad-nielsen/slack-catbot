@@ -144,7 +144,7 @@ module CatBot
     post "/kittens" do
       @cats = []
       begin
-        url = 'http://api.thecatapi.com/api/images/get?format=xml&size=full&category=kittens&results_per_page=1'
+        url = 'http://api.thecatapi.com/api/images/search?format=xml&size=full&category=kittens&results_per_page=1'
         doc = Nokogiri::HTML(open(url))
         doc.css('url').each do |kitty|
           @cats << kitty.content
